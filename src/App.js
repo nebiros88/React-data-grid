@@ -7,7 +7,7 @@ function App(props) {
   return (
     <div className="App_wrapper">
       <FiltersContainer />
-      <TableContainer {...props} />
+      <TableContainer className='tableContainer'{...props} />
       <InfoContainer />
     </div>
   );

@@ -2,6 +2,7 @@ import React from "react";
 import Table from "./Table";
 import { getData } from '../../redux/data-reducer';
 import { connect } from "react-redux";
+import style from './Table.module.css';
 
 class TableContainer extends React.Component {
   componentDidMount() {
@@ -10,8 +11,11 @@ class TableContainer extends React.Component {
 
   render() {
     return (
-      <div>
-        <Table />
+      <div className={style.tableWrapper} >
+        <Table data={this.props.data} 
+          totalUsers={this.props.totalUsers}
+          usersPerPage={this.props.usersPerPage
+          }/>
       </div>
     )
   }
@@ -19,7 +23,9 @@ class TableContainer extends React.Component {
 
 const mapStateToProps = (state) => {
   return {
-    data: state.data
+    data: state.tableData.data,
+    totalUsers: state.tableData.totalUsers,
+    usersPerPage: state.tableData.usersPerPage
   };
 }
 
