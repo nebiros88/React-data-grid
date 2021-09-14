@@ -1,5 +1,6 @@
 import React from "react";
 import style from './Table.module.css';
+import PagesListContainer from "./PagesList/PagesListContainer";
 
 const Table = (props) => {
   const pagesCount = Math.ceil(props.totalUsers / props.usersPerPage);
@@ -38,9 +39,7 @@ const Table = (props) => {
           )}
         </tbody>
       </table>
-      <div className={style.pagesList}>
-        {getPages().length !== 0 && getPages().map(p => { return <span>{p}</span> })}
-      </div>
+      <PagesListContainer {...props}  pagesList={getPages()}/>
     </div>
   )
 }

@@ -1,0 +1,9 @@
+.pagesList {
+  display: flex;
+  flex-direction: row;
+  height: 40px;
+  width: auto;
+  justify-content: flex-end;
+  align-items: center;
+}
+

@@ -20,5 +20,8 @@ th, td {
 }
 
 .pagesList {
-
+height: 40px;
+float: right;
+display: flex;
+flex-direction: row;
 }

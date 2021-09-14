@@ -14,8 +14,9 @@ class TableContainer extends React.Component {
       <div className={style.tableWrapper} >
         <Table data={this.props.data} 
           totalUsers={this.props.totalUsers}
-          usersPerPage={this.props.usersPerPage
-          }/>
+          usersPerPage={this.props.usersPerPage}
+          selectedPage={this.props.selectedPage}
+          />
       </div>
     )
   }
@@ -25,7 +26,8 @@ const mapStateToProps = (state) => {
   return {
     data: state.tableData.data,
     totalUsers: state.tableData.totalUsers,
-    usersPerPage: state.tableData.usersPerPage
+    usersPerPage: state.tableData.usersPerPage,
+    selectedPage: state.tableData.selectedPage
   };
 }
 
