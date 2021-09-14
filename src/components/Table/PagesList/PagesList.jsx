@@ -5,7 +5,11 @@ const PagesList = (props) => {
   return (
     <div className={style.pagesList}>
       <button>Previous</button>
-      {props.pagesList.length !== 0 && props.pagesList.map(p => { return <button>{p}</button> })}
+      {props.pagesList.length !== 0
+        && props.pagesList.map(p => {
+          return <button onClick={() => {props.onPageChanged(p)}}>{p}</button>
+        })
+      }
       <button>Next</button>
     </div>
   )

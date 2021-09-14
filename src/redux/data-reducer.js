@@ -26,7 +26,7 @@ const dataReducer = (state = InitialState, action) => {
 
 export const setData = (data) => ({type: SET_DATA, data});
 export const setTotalUsers = (totalUsers) => ({type: SET_TOTAL_USERS, totalUsers});
-export const changeSelectedPage = (page) => ({type: CHANGE_SELECTED_PAGE}, page);
+export const changeSelectedPage = (page) => ({type: CHANGE_SELECTED_PAGE, page});
 
 export const getData = () => {
   return(dispatch) => {
@@ -35,6 +35,12 @@ export const getData = () => {
         dispatch(setTotalUsers(response.data.length))
         dispatch(setData(response.data));
       })
+  }
+}
+
+export const changePage = (page) => {
+  return(dispatch) => {
+    dispatch(changeSelectedPage(page));
   }
 }
 
