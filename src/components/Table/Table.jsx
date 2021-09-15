@@ -3,7 +3,7 @@ import style from './Table.module.css';
 import PagesListContainer from "./PagesList/PagesListContainer";
 
 const Table = (props) => {
-  const pagesCount = Math.ceil(props.totalUsers / props.usersPerPage);
+  const pagesCount = Math.ceil(props.data.length / props.usersPerPage);
   const getPages = () => {
     let pages = []
     for (let i = 1; i <= pagesCount; i++) {
@@ -12,14 +12,11 @@ const Table = (props) => {
     return pages;
   }
 
-
-
-
   const renderUsers = (users) => {
     let result = [];
     if (users.length > 0) {
       let startUser = props.usersPerPage * props.selectedPage - props.usersPerPage;
-      for (let i = startUser; i < props.usersPerPage * props.selectedPage; i++) { 
+      for (let i = startUser; i < Math.min(props.usersPerPage * props.selectedPage, users.length); i++) { 
         result.push(
           <tr className={style.tableRow} onClick={() => props.changeSelectedUser(users[i])}>
           <td>{users[i].id}</td>

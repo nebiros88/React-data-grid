@@ -4,13 +4,15 @@ const SET_DATA = 'SET_DATA';
 const SET_TOTAL_USERS = 'SET_TOTAL_USERS';
 const CHANGE_SELECTED_PAGE = 'CHANGE_SELECTED_PAGE';
 const SELECT_USER = 'SELECT_USER';
+const SET_SEARCH_BY_NAME_VALUE = 'SET_SEARCH_BY_NAME_VALUE';
 
 let InitialState = {
   data: [],
   usersPerPage: 20,
   totalUsers: 0,
   selectedPage: 1,
-  selectedUser: { adress: {} }
+  selectedUser: { adress: {} },
+  searchByNameValue: ''
 }
 
 const dataReducer = (state = InitialState, action) => {
@@ -22,7 +24,10 @@ const dataReducer = (state = InitialState, action) => {
     case CHANGE_SELECTED_PAGE:
       return { ...state, selectedPage: action.page }
     case SELECT_USER:
-      return { ...state, selectedUser: { ...action.user, adress: { ...action.user.adress } } }
+      return { ...state, selectedUser: action.user }
+      // return { ...state, selectedUser: { ...action.user, adress: { ...action.user.adress } } }
+    case SET_SEARCH_BY_NAME_VALUE:
+      return { ...state, searchByNameValue: action.value}
     default:
       return state;
   }
@@ -32,6 +37,7 @@ export const setData = (data) => ({ type: SET_DATA, data });
 export const setTotalUsers = (totalUsers) => ({ type: SET_TOTAL_USERS, totalUsers });
 export const changeSelectedPage = (page) => ({ type: CHANGE_SELECTED_PAGE, page });
 export const selectUser = (user) => ({ type: SELECT_USER, user });
+export const setSearchByNameValue = (value) => ({ type: SET_SEARCH_BY_NAME_VALUE, value });
 
 export const getData = () => {
   return (dispatch) => {

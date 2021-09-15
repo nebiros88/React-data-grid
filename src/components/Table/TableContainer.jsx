@@ -28,9 +28,18 @@ class TableContainer extends React.Component {
   }
 }
 
+const getSortedData = (data, searchByName) => {
+  if (searchByName) {
+    data = data.filter(el => el.firstName.includes(searchByName));
+  }
+  return data;
+
+}
+
+
 const mapStateToProps = (state) => {
   return {
-    data: state.tableData.data,
+    data: getSortedData(state.tableData.data, state.tableData.searchByNameValue),
     totalUsers: state.tableData.totalUsers,
     usersPerPage: state.tableData.usersPerPage,
     selectedPage: state.tableData.selectedPage,
