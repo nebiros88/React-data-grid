@@ -1,10 +1,12 @@
 import React from "react";
 import Table from "./Table";
-import { getData, selectUser } from '../../redux/data-reducer';
+import { getData, selectUser, setStates } from '../../redux/data-reducer';
 import { connect } from "react-redux";
 import style from './Table.module.css';
 
 class TableContainer extends React.Component {
+  
+
   componentDidMount() {
     this.props.getData();
   }
@@ -22,6 +24,7 @@ class TableContainer extends React.Component {
           selectedPage={this.props.selectedPage}
           selectedUser={this.props.selectedUser}
           changeSelectedUser={this.changeSelectedUser}
+          getStates={this.getStates}
         />
       </div>
     )
@@ -33,19 +36,24 @@ const getSortedData = (data, searchByName) => {
     data = data.filter(el => el.firstName.includes(searchByName));
   }
   return data;
-
 }
 
+const getSortedDataByState = (data, state) => {
+  if(state) {
+    data = data.filter(el => el.adress.state === state);
+  }
+  return data;
+}
 
 const mapStateToProps = (state) => {
   return {
-    data: getSortedData(state.tableData.data, state.tableData.searchByNameValue),
+    data: getSortedDataByState(getSortedData(state.tableData.data, state.tableData.searchByNameValue),state.tableData.selectedState),
     totalUsers: state.tableData.totalUsers,
     usersPerPage: state.tableData.usersPerPage,
     selectedPage: state.tableData.selectedPage,
-    selectedUser: state.tableData.selectedUser
+    selectedUser: state.tableData.selectedUser,
+    selectedState: state.tableData.selectedState
   };
 }
 
-
-export default connect(mapStateToProps, { getData, selectUser })(TableContainer);
+export default connect(mapStateToProps, { getData, selectUser, setStates })(TableContainer);
