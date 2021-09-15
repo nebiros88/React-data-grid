@@ -10,7 +10,6 @@ class TableContainer extends React.Component {
   }
 
   changeSelectedUser = (user) => {
-    debugger;
     this.props.selectUser(user);
   }
 

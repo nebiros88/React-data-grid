@@ -10,7 +10,7 @@ let InitialState = {
   usersPerPage: 20,
   totalUsers: 0,
   selectedPage: 1,
-  selectedUser: []
+  selectedUser: { adress: {} }
 }
 
 const dataReducer = (state = InitialState, action) => {
@@ -22,7 +22,7 @@ const dataReducer = (state = InitialState, action) => {
     case CHANGE_SELECTED_PAGE:
       return { ...state, selectedPage: action.page }
     case SELECT_USER:
-      return { ...state, selectedUser: action.user }
+      return { ...state, selectedUser: { ...action.user, adress: { ...action.user.adress } } }
     default:
       return state;
   }
