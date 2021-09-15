@@ -15,10 +15,10 @@ const Table = (props) => {
   const renderUsers = (users) => {
     let result = [];
     if (users.length > 0) {
-      let startUsers = props.usersPerPage * props.selectedPage - props.usersPerPage;
-      for (let i = startUsers; i < props.usersPerPage * props.selectedPage; i++) { 
+      let startUser = props.usersPerPage * props.selectedPage - props.usersPerPage;
+      for (let i = startUser; i < props.usersPerPage * props.selectedPage; i++) { 
         result.push(
-          <tr key={users[i].id}>
+          <tr >
           <td>{users[i].id}</td>
           <td>{users[i].firstName}</td>
           <td>{users[i].lastName}</td>
@@ -46,18 +46,6 @@ const Table = (props) => {
           </tr>
         </thead>
         <tbody>
-          {/* {props.data.map(user => 
-            (  
-              <tr key={user.id}>
-                <td>{user.id}</td>
-                <td>{user.firstName}</td>
-                <td>{user.lastName}</td>
-                <td>{user.email}</td>
-                <td>{user.phone}</td>
-                <td>{user.adress.state}</td>
-              </tr>
-            )
-          )} */}
           {renderUsers(props.data)}
         </tbody>
       </table>
