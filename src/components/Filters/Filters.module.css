@@ -1,0 +1,57 @@
+.filtersWrapper {
+  display: flex;
+  flex-direction: row;
+  justify-content:space-between;
+  align-items: center;
+  height: 5%;
+  width: 60%;
+  margin-top: 1%;
+  margin-bottom: 1%;
+}
+
+.searchBox {
+  display: flex;
+  flex-direction: row;
+  width: 35%;
+  border: 1px solid blue;
+  justify-content: center;
+  align-items: center;
+  background-color: white;
+}
+
+.searchBox_description {
+  display: flex;
+}
+
+.searchBox_input {
+  display: flex;
+  border: none;
+}
+
+.selectBox {
+  width: 15%;
+  height: 100%;
+  background-color: blue;
+  border-radius: 5px;
+  color: white;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+
+.selectBox_description {
+  height: 100%;
+  width: 80%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 600;
+}
+
+.selectBox_select {
+  display: flex;
+  border: none;
+  background-color: blue;
+  color: white;
+}

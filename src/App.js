@@ -6,7 +6,7 @@ import InfoContainer from './components/Info/InfoContainer';
 function App(props) {
   return (
     <div className="App_wrapper">
-      <FiltersContainer />
+      <FiltersContainer className='filtersContainer' {...props}/>
       <TableContainer className='tableContainer'{...props} />
       <InfoContainer className='infoContainer' {...props}/>
     </div>

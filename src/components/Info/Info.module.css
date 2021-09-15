@@ -3,7 +3,8 @@
   flex-direction: column;
   height: 20vh;
   width: 60vw;
-  background-color:whitesmoke;
+  background-color:white;
   justify-content: center;
   align-items: center;
+  margin-bottom: 2%;
 }
