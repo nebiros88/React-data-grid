@@ -1,0 +1,9 @@
+.infoWrapper {
+  display: flex;
+  flex-direction: column;
+  height: 20vh;
+  width: 60vw;
+  background-color:whitesmoke;
+  justify-content: center;
+  align-items: center;
+}

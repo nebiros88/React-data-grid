@@ -8,7 +8,7 @@ function App(props) {
     <div className="App_wrapper">
       <FiltersContainer />
       <TableContainer className='tableContainer'{...props} />
-      <InfoContainer />
+      <InfoContainer className='infoContainer' {...props}/>
     </div>
   );
 }

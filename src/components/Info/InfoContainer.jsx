@@ -1,14 +1,21 @@
 import React from "react";
 import Info from "./Info";
+import { connect } from "react-redux";
 
 class InfoContainer extends React.Component {
   render() {
     return (
       <div>
-        <Info />
+        <Info selectedUser={this.props.selectedUser}/>
       </div>
     )
   }
 }
 
-export default InfoContainer;
+const mapStateToProps = (state) => {
+  return {
+    selectedUser: state.tableData.selectedUser
+  }
+}
+
+export default connect(mapStateToProps,)(InfoContainer);
