@@ -1,9 +1,7 @@
 import React from "react";
 import PagesList from "./PagesList";
-import style from './PagesList.module.css';
 import { changeSelectedPage, changePage } from '../../../redux/data-reducer';
 import { connect } from "react-redux";
-
 
 class PagesListContainer extends React.Component {
   onPageChanged = (page) => {
@@ -14,6 +12,7 @@ class PagesListContainer extends React.Component {
     return (
       <PagesList {...this.props}
         onPageChanged={this.onPageChanged}
+        selectedPage={this.props.selectedPage}
       />
     )
   }

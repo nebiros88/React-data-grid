@@ -5,9 +5,7 @@ import { connect } from "react-redux";
 class InfoContainer extends React.Component {
   render() {
     return (
-      <div>
         <Info selectedUser={this.props.selectedUser}/>
-      </div>
     )
   }
 }
