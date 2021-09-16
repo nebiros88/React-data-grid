@@ -22,7 +22,7 @@ const Filters = (props) => {
       <div className={style.selectBox}>
          <div className={style.selectBox_description} >Filter by state</div>
         <select className={style.selectBox_select} onChange={props.onChangeSelectedState}>
-          <option disabled></option>
+          <option ></option>
           {enterOptions(props.states)}
         </select>
       </div>

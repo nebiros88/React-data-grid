@@ -5,8 +5,9 @@ const SET_TOTAL_USERS = 'SET_TOTAL_USERS';
 const CHANGE_SELECTED_PAGE = 'CHANGE_SELECTED_PAGE';
 const SELECT_USER = 'SELECT_USER';
 const SET_SEARCH_BY_NAME_VALUE = 'SET_SEARCH_BY_NAME_VALUE';
-const SET_STATES = 'SET_STATES'; 
+const SET_STATES = 'SET_STATES';
 const SET_SELECTED_STATE = 'SET_SELECTED_STATE';
+const SET_SORT_CONFIG = 'SET_SORT_CONFIG';
 
 let InitialState = {
   data: [],
@@ -16,7 +17,9 @@ let InitialState = {
   selectedUser: { adress: {} },
   searchByNameValue: '',
   states: [],
-  selectedState: ''
+  selectedState: '',
+  sortConfig: { method: '', colName: '' }
+
 }
 
 const dataReducer = (state = InitialState, action) => {
@@ -35,6 +38,8 @@ const dataReducer = (state = InitialState, action) => {
       return { ...state, states: action.states }
     case SET_SELECTED_STATE:
       return { ...state, selectedState: action.state }
+    case SET_SORT_CONFIG:
+      return { ...state, sortConfig: action.config }
     default:
       return state;
   }
@@ -45,8 +50,10 @@ export const setTotalUsers = (totalUsers) => ({ type: SET_TOTAL_USERS, totalUser
 export const changeSelectedPage = (page) => ({ type: CHANGE_SELECTED_PAGE, page });
 export const selectUser = (user) => ({ type: SELECT_USER, user });
 export const setSearchByNameValue = (value) => ({ type: SET_SEARCH_BY_NAME_VALUE, value });
-export const setStates = (states) => ({type: SET_STATES, states});
-export const setSelectedState = (state) => ({type: SET_SELECTED_STATE, state})
+export const setStates = (states) => ({ type: SET_STATES, states });
+export const setSelectedState = (state) => ({ type: SET_SELECTED_STATE, state });
+export const setSortConfig = (config) => ({ type: SET_SORT_CONFIG, config })
+
 
 export const getData = () => {
   return (dispatch) => {

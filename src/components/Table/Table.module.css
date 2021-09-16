@@ -35,6 +35,27 @@ th, td {
   background-color: #c7d0ff;
 }
 
+.tableHead {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.tableHead_description {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+
+.tableHead_img {
+  height: 15px;
+  width: 15px;
+  border: none;
+}
+
 .pagesList {
 height: 40px;
 float: right;
