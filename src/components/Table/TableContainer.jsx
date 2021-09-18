@@ -40,7 +40,7 @@ class TableContainer extends React.Component {
 
 const filter = (data, searchByName, state) => {
   if (searchByName) {
-    data = data.filter(el => el.firstName.includes(searchByName));
+    data = data.filter(el => (el.firstName.toLowerCase()).includes(searchByName.toLowerCase()));
   }
   if(state) {
     data = data.filter(el => el.adress.state === state);
