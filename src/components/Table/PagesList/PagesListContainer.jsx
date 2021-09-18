@@ -11,7 +11,7 @@ class PagesListContainer extends React.Component {
   render() {
     return (
       <PagesList {...this.props}
-        onPageChanged={this.onPageChanged}
+        onPageChanged={this.onPageChanged.bind(this)}
         selectedPage={this.props.selectedPage}
       />
     )

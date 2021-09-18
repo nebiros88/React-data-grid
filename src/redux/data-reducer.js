@@ -25,7 +25,7 @@ let InitialState = {
 const dataReducer = (state = InitialState, action) => {
   switch (action.type) {
     case SET_DATA:
-      return { ...state, data: [...action.data] }
+      return { ...state, data: action.data.map(user => ({...user, state: user.adress.state})) }
     case SET_TOTAL_USERS:
       return { ...state, totalUsers: action.totalUsers }
     case CHANGE_SELECTED_PAGE:

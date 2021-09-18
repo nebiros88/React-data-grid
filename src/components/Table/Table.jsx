@@ -23,8 +23,9 @@ const Table = (props) => {
   const renderUsers = (users) => {
     let result = [];
     if (users.length > 0) {
-      let startUser = props.usersPerPage * props.selectedPage - props.usersPerPage;
-      for (let i = startUser; i < Math.min(props.usersPerPage * props.selectedPage, users.length); i++) {
+      const curPage = Math.min(pagesCount, props.selectedPage);
+      let startUser = props.usersPerPage * curPage - props.usersPerPage;
+      for (let i = startUser; i < Math.min(props.usersPerPage * curPage, users.length); i++) {
         result.push(
           <tr className={style.tableRow} onClick={() => props.changeSelectedUser(users[i])}>
             <td>{users[i].id}</td>
